@@ -27,3 +27,9 @@ A full-stack movie search and watchlist app built with React, Express, and SQLit
 ## Future Features
 - User authentication
 - Per-user watchlists
+
+## Screenshots
+![Home](screenshots/home.png)
+![Movie Detail](screenshots/detail.png)
+![Watchlist](screenshots/watchlist.png)
+![WatchlistMobile](screenshots/watchlistmobile.png)
