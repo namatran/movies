@@ -10,7 +10,7 @@ const Watchlist = () => {
     useEffect(() => {
         const fetchWatchlist = async () => {
             try {
-                const response = await fetch('http://localhost:3000/watchlist/');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/watchlist/`);
                 const data = await response.json();
                 setWatchlist(data);
             } catch (error) {

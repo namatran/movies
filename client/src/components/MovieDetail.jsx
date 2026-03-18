@@ -13,11 +13,11 @@ const MovieDetail = () => {
     useEffect(() => {
         const fetchMovie = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/movies/${id}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/movies/${id}`);
                 const data = await response.json();
                 setMovie(data);
-                
-                const watchlistRes = await fetch('http://localhost:3000/watchlist');
+
+                const watchlistRes = await fetch(`${import.meta.env.VITE_API_URL}/watchlist`);
                 const watchlistData = await watchlistRes.json();
                 setInWatchlist(watchlistData.some(m => m.tmdb_id === data.id));
             } catch (error) {
@@ -32,7 +32,7 @@ const MovieDetail = () => {
 
     // Watchlist Functions
     const handleAddToWatchlist = async () => {
-        await fetch('http://localhost:3000/watchlist', {
+        await fetch(`${import.meta.env.VITE_API_URL}/watchlist`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -48,10 +48,10 @@ const MovieDetail = () => {
     };
 
     const handleRemoveFromWatchlist = async () => {
-        const watchlistRes = await fetch('http://localhost:3000/watchlist');
+        const watchlistRes = await fetch(`${import.meta.env.VITE_API_URL}/watchlist`);
         const watchlistData = await watchlistRes.json();
         const entry = watchlistData.find(m => m.tmdb_id === movie.id);
-        await fetch(`http://localhost:3000/watchlist/${entry.id}`, { method: 'DELETE' });
+        await fetch(`${import.meta.env.VITE_API_URL}/watchlist/${entry.id}`, { method: 'DELETE' });
         setInWatchlist(false);
     };
 

@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchPopular = async () => {
             try {
-                const response = await fetch('http://localhost:3000/movies/popular');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/movies/popular`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch Movie data');
                 }
@@ -32,12 +32,12 @@ const Home = () => {
         setError(null);
         try {
             if (search === "") {
-                const response = await fetch('http://localhost:3000/movies/popular');
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/movies/popular`);
                 const data = await response.json();
                 setResults(data);
                 return;
             }
-            const response = await fetch(`http://localhost:3000/movies/search?query=${search}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/movies/search?query=${search}`);
             if (!response.ok) throw new Error('Failed to fetch Movie data');
             const data = await response.json();
             setResults(data);
