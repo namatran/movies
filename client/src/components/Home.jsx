@@ -1,5 +1,3 @@
-console.log(import.meta.env.VITE_API_URL);
-
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './Home.css';
