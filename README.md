@@ -14,6 +14,10 @@ A full-stack movie search and watchlist app built with React, Express, and SQLit
 - **Database:** SQLite (better-sqlite3)
 - **External API:** TMDB
 
+## Limitations
+- The watchlist is shared across all users — per-user watchlists require authentication
+- The database resets on each Railway deployment — a persistent database (e.g. PostgreSQL) would be required for production use
+
 ## Endpoints
 | Method | Endpoint | Description |
 |--------|----------|-------------|
